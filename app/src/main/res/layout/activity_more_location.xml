@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MoreLocationActivity"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="40dp"
+    android:background="@color/moreLocationBg">
+
+    <RelativeLayout
+        android:id="@+id/editLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/editLocation"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_edit" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editLocation"
+            android:layout_alignParentLeft="true"
+            android:text="天气"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="28sp" />
+    </RelativeLayout>
+
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:queryHint="@string/queryHint"
+            app:iconifiedByDefault="true"
+            android:imeOptions="actionSearch"
+            android:background="@drawable/searchview_bg"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:layout_below="@id/editLayout"
+            />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/weatherRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/searchView"/>
+
+    <ListView
+        android:id="@+id/locationList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/searchView"
+        android:layout_marginTop="10dp"
+        android:background="@color/moreLocationBg"
+        android:visibility="gone"/>
+
+</RelativeLayout>
