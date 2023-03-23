@@ -1,6 +1,5 @@
 package com.franz.easyweather.adapter;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,19 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.franz.easyweather.R;
 import com.franz.easyweather.base.BaseApplication;
-import com.franz.easyweather.bean.LocationBean;
-import com.franz.easyweather.bean.WFuture7Bean;
 import com.franz.easyweather.bean.WRealTimeBean;
-import com.franz.easyweather.utils.WeatherIconUtils;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.ViewHolder> implements View.OnClickListener{
-    private List<WRealTimeBean> beanList;
+    //根据problem加上final修饰符
+    private final List<WRealTimeBean> beanList;
     private OnWeatherItemsClickListener listener;
     private OnWeatherItemsClickListener delListener;
     private boolean isDelete = false;
@@ -53,11 +46,16 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.ViewHo
         holder.status.setText(bean.getText());
         holder.time.setText(bean.getLast_update());
 
+        //*******************由于图片资源有限，只添加了几种常见的天气背景图片**************************
+        //根据张老师的提示，再继续增添几种常见的天气状况，注意开发细节。
         switch (bean.getText()){
             case "晴":holder.img.setImageDrawable(BaseApplication.context.getDrawable(R.drawable.icon_bg_sunny));break;
             case "多云":holder.img.setImageDrawable(BaseApplication.context.getDrawable(R.drawable.icon_bg_cloudy));break;
-            case "阴":holder.img.setImageDrawable(BaseApplication.context.getDrawable(R.drawable.icon_bg_cloudy));break;
+            case "阴":holder.img.setImageDrawable(BaseApplication.context.getDrawable(R.drawable.icon_bg_dark));break;
             case "雨":holder.img.setImageDrawable(BaseApplication.context.getDrawable(R.drawable.icon_bg_big_rain));break;
+            case "小雨":holder.img.setImageDrawable(BaseApplication.context.getDrawable(R.drawable.icon_bg_big_rain));break;
+            case "扬沙":holder.img.setImageDrawable(BaseApplication.context.getDrawable(R.drawable.icon_bg_fog));break;
+            case "霾":holder.img.setImageDrawable(BaseApplication.context.getDrawable(R.drawable.icon_bg_wumai));break;
             case "雪":holder.img.setImageDrawable(BaseApplication.context.getDrawable(R.drawable.icon_bg_snow));break;
             case "雷":holder.img.setImageDrawable(BaseApplication.context.getDrawable(R.drawable.icon_bg_thunder));break;
         }
@@ -94,18 +92,23 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.ViewHo
         }
     }
 
+/*
     public boolean isDelete() {
         return isDelete;
     }
+*/
 
     public void setDelete(boolean delete) {
         isDelete = delete;
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView time,status,location,temp;
-        private ImageView img,delete;
-        private ConstraintLayout layout;
+        //根据提示加关键词final
+        private final TextView time,status,location,temp;
+        //根据提示加final
+        private final ImageView img,delete;
+        //根据提示加final
+        private final ConstraintLayout layout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

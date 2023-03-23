@@ -10,8 +10,10 @@ import androidx.viewpager.widget.PagerAdapter;
 import java.util.List;
 
 public class BaseFragmentAdapter extends PagerAdapter {
-    private List<View> views;
-    private List<String> titles;
+    //根据problem提示加上了final修饰
+    private final List<View> views;
+    //根据problem提示加上了final修饰
+    private final List<String> titles;
 
    public BaseFragmentAdapter(List<View> views,List<String> titles){
        this.views = views;

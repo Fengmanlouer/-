@@ -6,8 +6,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -15,7 +13,6 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 
 import com.franz.easyweather.adapter.Weather24HAdapter;
 import com.franz.easyweather.adapter.Weather7DAdapter;
@@ -23,32 +20,16 @@ import com.franz.easyweather.bean.WFuture7Bean;
 import com.franz.easyweather.bean.WHourly24Bean;
 import com.franz.easyweather.bean.WRealTimeBean;
 
-import com.franz.easyweather.callback.HttpCallback;
-
 import com.franz.easyweather.callback.WeatherCallback_24H;
 import com.franz.easyweather.callback.WeatherCallback_7D;
 import com.franz.easyweather.callback.WeatherCallback_now;
 import com.franz.easyweather.databinding.ActivityMainBinding;
-import com.franz.easyweather.param.WeatherParam;
-import com.franz.easyweather.utils.HttpUtils;
 import com.franz.easyweather.utils.JsonUtils;
 import com.franz.easyweather.utils.LocationUtils;
 import com.franz.easyweather.utils.StatusBarUtils;
-import com.qweather.sdk.bean.base.Code;
-import com.qweather.sdk.bean.geo.GeoBean;
-import com.qweather.sdk.bean.weather.WeatherDailyBean;
-import com.qweather.sdk.bean.weather.WeatherHourlyBean;
-import com.qweather.sdk.bean.weather.WeatherNowBean;
-import com.qweather.sdk.view.HeConfig;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import okhttp3.OkHttpClient;
 
 public class MainActivity extends AppCompatActivity  {
     private ActivityMainBinding binding;
@@ -65,9 +46,10 @@ public class MainActivity extends AppCompatActivity  {
 
     private Weather24HAdapter adapter24H;
     private Weather7DAdapter adapter7D;
-    private List<WHourly24Bean> hourlyBeanList = new ArrayList<>();
-    private List<WFuture7Bean> dailyBeanList = new ArrayList<>();
-
+    //根据提示加上了关键词final
+    final private List<WHourly24Bean> hourlyBeanList = new ArrayList<>();
+    //根据提示加上了关键词final
+    final private List<WFuture7Bean> dailyBeanList = new ArrayList<>();
     private String location;
 
 
@@ -154,14 +136,23 @@ public class MainActivity extends AppCompatActivity  {
         changeBG(bean.getText());
     }
 
+//根据老师的提示，做了修改：
+// 根据不同地方天气的描述，动态更换不同的背景图片。增加了中雨，小雨，扬沙，霾等描述。
     private void changeBG(String status){
         switch (status){
             case "晴":binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_sunny));break;
             case "多云":binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_cloudy));break;
-            case "阴":binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_cloudy));break;
-            case "雨":binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_big_rain));break;
+            case "阴":binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_dark));break;
+            case "大雨":
+            case "中雨":
+                binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_big_rain));break;
+            case "雨":
+            case "小雨":
+                binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_small_rain));break;
             case "雪":binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_snow));break;
             case "雷":binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_thunder));break;
+            case "扬沙":binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_fog));break;
+            case "霾":binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_wumai));break;
         }
     }
 

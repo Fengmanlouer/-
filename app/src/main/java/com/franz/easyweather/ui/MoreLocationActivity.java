@@ -17,7 +17,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.franz.easyweather.R;
@@ -32,22 +31,12 @@ import com.franz.easyweather.utils.JsonUtils;
 import com.franz.easyweather.utils.StatusBarUtils;
 
 import org.greenrobot.eventbus.EventBus;
-import org.jetbrains.annotations.NotNull;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.Observer;
-import io.reactivex.disposables.Disposable;
-
 public class MoreLocationActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
     private ActivityMoreLocationBinding binding;
-
-    private static final String TAG = "MoreLocationActivityLog";
 
     private String location;
     private Dao dao;

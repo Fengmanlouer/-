@@ -1,9 +1,7 @@
 package com.franz.easyweather.utils
 
-import android.os.Message
 import android.text.TextUtils
 import android.util.Log
-import com.franz.easyweather.MainActivity
 import com.franz.easyweather.bean.WFuture7Bean
 import com.franz.easyweather.bean.WHourly24Bean
 import com.franz.easyweather.bean.WRealTimeBean

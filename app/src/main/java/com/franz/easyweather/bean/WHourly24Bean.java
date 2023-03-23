@@ -1,8 +1,5 @@
 package com.franz.easyweather.bean;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 public class WHourly24Bean{
 
     private String time;

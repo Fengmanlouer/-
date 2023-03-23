@@ -1,7 +1,5 @@
 package com.franz.easyweather.utils;
 
-import android.graphics.drawable.Drawable;
-
 import com.franz.easyweather.R;
 
 public class WeatherIconUtils {

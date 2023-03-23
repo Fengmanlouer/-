@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.franz.easyweather.R;
 import com.franz.easyweather.bean.WHourly24Bean;
 import com.franz.easyweather.utils.WeatherIconUtils;
-import com.qweather.sdk.bean.weather.WeatherHourlyBean;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

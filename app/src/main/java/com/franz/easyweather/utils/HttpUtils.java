@@ -1,7 +1,5 @@
 package com.franz.easyweather.utils;
 
-import android.util.Log;
-
 import com.franz.easyweather.callback.HttpCallback;
 import com.franz.easyweather.param.ErrorCodeParam;
 import com.franz.easyweather.param.WeatherParam;
@@ -10,21 +8,15 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.Callback;
-import okhttp3.FormBody;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class HttpUtils {

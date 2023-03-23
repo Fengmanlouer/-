@@ -1,6 +1,5 @@
 package com.franz.easyweather.adapter;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,14 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.franz.easyweather.R;
-import com.franz.easyweather.base.BaseApplication;
 import com.franz.easyweather.bean.WFuture7Bean;
 import com.franz.easyweather.utils.WeatherIconUtils;
-import com.qweather.sdk.bean.weather.WeatherDailyBean;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;

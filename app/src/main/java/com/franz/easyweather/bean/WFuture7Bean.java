@@ -1,9 +1,6 @@
 package com.franz.easyweather.bean;
 
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 public class WFuture7Bean{
     private String date;
     private String text_day;
