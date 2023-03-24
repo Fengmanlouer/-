@@ -143,19 +143,21 @@ public class MainActivity extends AppCompatActivity  {
             case "晴":binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_sunny));break;
             case "多云":binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_cloudy));break;
             case "阴":binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_dark));break;
-            case "大雨":
-            case "中雨":
-                binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_big_rain));break;
-            case "雨":
-            case "小雨":
-                binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_small_rain));break;
+            //大雨、中雨背景图片设置为一样
+            case "大雨":binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_big_rain));break;
+            case "中雨":binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_big_rain));break;
+            //雨，小雨设置为一样
+            case "雨":binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_small_rain));break;
+            case "小雨":binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_small_rain));break;
             case "雪":binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_snow));break;
             case "雷":binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_thunder));break;
+            //添加了扬沙、霾等描述
             case "扬沙":binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_fog));break;
             case "霾":binding.mainLinearLayout.setBackground(getDrawable(R.drawable.icon_bg_wumai));break;
         }
     }
 
+    //根据位置取得天气信息：
     private void getWeatherInfo(){
         location = LocationUtils.getInstance().getLocationInfo();
         if (TextUtils.isEmpty(location)) {
@@ -236,5 +238,6 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
     }
+
 
 }

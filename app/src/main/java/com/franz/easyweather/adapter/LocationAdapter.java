@@ -47,7 +47,6 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.ViewHo
         holder.time.setText(bean.getLast_update());
 
         //*******************由于图片资源有限，只添加了几种常见的天气背景图片**************************
-        //根据张老师的提示，再继续增添几种常见的天气状况，注意开发细节。
         switch (bean.getText()){
             case "晴":holder.img.setImageDrawable(BaseApplication.context.getDrawable(R.drawable.icon_bg_sunny));break;
             case "多云":holder.img.setImageDrawable(BaseApplication.context.getDrawable(R.drawable.icon_bg_cloudy));break;

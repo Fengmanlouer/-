@@ -19,8 +19,8 @@ import java.util.Date;
 import java.util.List;
 
 public class Weather24HAdapter extends RecyclerView.Adapter<Weather24HAdapter.ViewHolder> {
-
-    private List<WHourly24Bean> hourlyBeanList;
+    //加final
+    private final List<WHourly24Bean> hourlyBeanList;
     public Weather24HAdapter(List<WHourly24Bean> hourlyBeanList){
         this.hourlyBeanList = hourlyBeanList;
     }
@@ -40,9 +40,8 @@ public class Weather24HAdapter extends RecyclerView.Adapter<Weather24HAdapter.Vi
 
         String hour = bean.getTime().substring(11,13);
         if (isNow(hour)){
-            holder.time.setText("现在");
+            holder.time.setText("此时");
         }else {
-            //2022-08-29T21:00:00+08:00
             holder.time.setText(bean.getTime().substring(11,13)+"时");
         }
 
@@ -57,8 +56,10 @@ public class Weather24HAdapter extends RecyclerView.Adapter<Weather24HAdapter.Vi
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView time,temp;
-        private ImageView img;
+        //加final
+        private final TextView time,temp;
+        //加final
+        private final ImageView img;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             time = itemView.findViewById(R.id.time_24h);

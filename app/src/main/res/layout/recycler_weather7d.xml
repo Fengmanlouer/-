@@ -4,6 +4,10 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center">
+
+<!--第一个线性布局，水平排列：textview（时间，今天，星期几等等）、
+  Imageview(用来显示天气状况图)，解析天气状态WeatherIconUtils.java、
+  textview最低气温、横线、最高气温-->
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -38,12 +42,11 @@
 
     <View
         android:layout_width="0dp"
-        android:layout_weight="1.5"
+        android:layout_weight="1.0"
         android:layout_height="20dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-       android:background="@drawable/icon_split_line"/>
-
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/icon_split_line"/>
 
     <TextView
         android:id="@+id/maxTemp_7d"
@@ -55,10 +58,12 @@
         android:gravity="left"
         android:layout_gravity="center"/>
 </LinearLayout>
+
+    <!--第一个view，分区线-->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/split_line"/>
+        android:background="@color/split_line" />
 </LinearLayout>

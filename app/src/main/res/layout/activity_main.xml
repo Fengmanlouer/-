@@ -9,6 +9,7 @@
     android:orientation="vertical"
     android:id="@+id/mainLinearLayout">
 
+    <!--顶部采用线性布局，使用TextView展示城市名称、温度、以及实时天气状态（小雨、晴等等）-->
     <LinearLayout
         android:id="@+id/NormalStatus"
         android:layout_width="match_parent"
@@ -39,6 +40,9 @@
             android:gravity="center"/>
     </LinearLayout>
 
+    <!--NestedScrollView 与 ScrollView 的区别就在于 NestedScrollView 支持嵌套滑动，
+    无论是作为父控件还是子控件，嵌套滑动都支持，且默认开启。考虑到展示24小时天气详情需要使用到Recylerview，
+    选择了使用NestedScrollView，子控件采用线性布局。参考：https://www.jianshu.com/p/fda06c916d6b-->
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
@@ -49,6 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <!--第一个线性布局，垂直排列：textview、view(分区线)、recylerview-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -59,7 +64,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="24小时天气预报"
+                    android:text="24小时逐时天气预报"
                     android:textColor="@color/white"
                     android:textSize="12sp"/>
                 <View
@@ -68,20 +73,23 @@
                     android:background="@color/split_line"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"/>
+
+                <!--Recyclerview布局：recycler_weather24h.xml-->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/Recycler_24H"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
 
+            <!--第二个线性布局，垂直排列：textview、view(分区线)、recylerview（recycler_weather7d.xml）-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:background="@drawable/shape_bg_box"
                 android:padding="10dp"
-                android:layout_marginTop="10dp"
-                >
+                android:layout_marginTop="10dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -99,6 +107,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
+
+            <!--第三个线性布局，两个约束布局。风、云量显示均使用约束布局-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -143,6 +153,7 @@
                         app:layout_constraintLeft_toLeftOf="parent"
                         android:layout_marginLeft="10dp"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -175,7 +186,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="过去24小时"
+                        android:text="过去24小时运量"
                         android:textColor="@color/white"
                         android:textSize="20sp"
                         app:layout_constraintTop_toBottomOf="@+id/cloud"
@@ -184,6 +195,8 @@
                         android:visibility="invisible"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
+
+            <!--第四个线性布局，两个约束布局。体感温度、湿度显示均使用约束布局-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -268,6 +281,8 @@
                         android:layout_marginLeft="10dp"
                         android:visibility="invisible"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--第五个线性布局，两个约束布局。能见度、气压显示均使用约束布局-->
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -354,6 +369,8 @@
                         android:visibility="invisible"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
 </LinearLayout>
