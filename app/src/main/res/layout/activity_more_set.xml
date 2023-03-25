@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MoreSetActivity"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="40dp"
+    android:background="#FFFFFFFF">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/more_set_title"
+        android:id="@+id/moreSet_Layout">
+
+        <ImageView
+            android:id="@+id/more_set_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/icon_return" />
+
+        <TextView
+            android:id="@+id/more_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="设置"
+            android:textSize="28sp"
+            android:textColor="#FF000000"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/moreSet_List"
+        android:layout_below="@+id/moreSet_Layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_bg_box"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/moreset_version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="当前版本"
+            android:textSize="18sp"
+            android:drawableLeft="@drawable/moreset_version"
+            android:layout_marginLeft="10dp"
+            android:drawablePadding="20dp"
+            android:padding="10dp"/>
+        <ImageView
+            android:id="@+id/moreset_line1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/moreset_version"
+            android:background="#DCDCDC"/>
+
+        <TextView
+            android:id="@+id/more_set_delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="清除缓存"
+            android:textSize="18sp"
+            android:drawableLeft="@drawable/moreset_delete"
+            android:layout_marginLeft="10dp"
+            android:drawablePadding="20dp"
+            android:padding="10dp"/>
+        <ImageView
+            android:id="@+id/moreset_line2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/more_set_delete"
+            android:background="#DCDCDC"/>
+
+        <TextView
+            android:id="@+id/more_set_share"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="分享软件"
+            android:textSize="18sp"
+            android:drawableLeft="@drawable/moreset_share"
+            android:layout_marginLeft="10dp"
+            android:drawablePadding="20dp"
+            android:padding="10dp"/>
+        <ImageView
+            android:id="@+id/moreset_line3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/more_set_delete"
+            android:background="#DCDCDC"/>
+
+        <TextView
+            android:id="@+id/more_set_notice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="天气提醒"
+            android:textSize="18sp"
+            android:drawableLeft="@drawable/moreset_notice"
+            android:layout_marginLeft="10dp"
+            android:drawablePadding="20dp"
+            android:padding="10dp"/>
+        <ImageView
+            android:id="@+id/moreset_line4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/more_set_notice"
+            android:background="#DCDCDC"/>
+
+        <TextView
+            android:id="@+id/more_set_aboutweather"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="关于天气"
+            android:textSize="18sp"
+            android:drawableLeft="@drawable/moreset_aboutweather"
+            android:layout_marginLeft="10dp"
+            android:drawablePadding="20dp"
+            android:padding="10dp"/>
+        <ImageView
+            android:id="@+id/moreset_line5"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/more_set_aboutweather"
+            android:background="#DCDCDC"/>
+
+        <TextView
+            android:id="@+id/more_set_otherset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="其他设置"
+            android:textSize="18sp"
+            android:drawableLeft="@drawable/moreset_otherset"
+            android:layout_marginLeft="10dp"
+            android:drawablePadding="20dp"
+            android:padding="10dp"/>
+
+    </LinearLayout>
+</RelativeLayout>
