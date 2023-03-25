@@ -101,24 +101,34 @@ public class WeatherDetailActivity extends AppCompatActivity implements ViewPage
 
         binding.weatherViewPager.addOnPageChangeListener(this);
 
-        /**
-         * 默认第0页面与指示器绑定*/
+        //***************默认第0页面与指示器绑定****************
         binding.indicatorLayout.getChildAt(oldPos).setEnabled(true);
 
+        //*************************更多设置页面跳转****************
+        //新添加设置功能
+        binding.moreSet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent_set = new Intent(WeatherDetailActivity.this,MoreSetActivity.class);
+                startActivity(intent_set);
+            }
+        });
+
+        //城市管理页面跳转
         binding.moreLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WeatherDetailActivity.this,MoreLocationActivity.class);
+                Intent intent_moreLocation = new Intent(WeatherDetailActivity.this,MoreLocationActivity.class);
                 if (!TextUtils.isEmpty(location)){
-                    intent.putExtra("currentLocation",location);
+                    intent_moreLocation.putExtra("currentLocation",location);
                 }
-                startActivity(intent);
+                startActivity(intent_moreLocation);
             }
         });
+
     }
 
-    /**
-     * 权限申明*/
+    //*************权限申明*************
     private void initPermission() {
         if (checkSelfPermission(Group_Location[0]) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Group_Location[1]) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(Group_Location, REQUEST_CODE_LOCATION);
@@ -135,16 +145,14 @@ public class WeatherDetailActivity extends AppCompatActivity implements ViewPage
         }
     }
 
-    /**
-     * 初始化viewPager，为避免空指针，先初始化对象，后面直接notify*/
+    //*********初始化viewPager，为避免空指针，先初始化对象，后面直接notify******************
     private void initBaseFragment(){
         adapter = new BaseFragmentAdapter(viewList,titleList);
         binding.weatherViewPager.setAdapter(adapter);
     }
 
 
-    /**
-     * 根据用户添加的城市，然后添加对应的viewPager页面*/
+    //*********************根据用户添加的城市，然后添加对应的viewPager页面********************
     private void initViewPager(){
         dao = new Dao(this);
         locationList = dao.QueryAll();
@@ -166,9 +174,9 @@ public class WeatherDetailActivity extends AppCompatActivity implements ViewPage
 
         adapter.notifyDataSetChanged();
     }
+    //*************************************initViewPager()结束*******************************
 
-    /**
-     * viewPager页面添加，包括实况天气数据、预期24小时、预报7天*/
+    //*****************************viewPager页面添加，包括实况天气数据、预期24小时、预报7天************************************/
     private void addView(String location){
         View view = LayoutInflater.from(this).inflate(R.layout.activity_main,null,false);
 
@@ -229,12 +237,17 @@ public class WeatherDetailActivity extends AppCompatActivity implements ViewPage
                         weatherHum.setText(bean.getHumidity() + "%");//湿度
                         weatherVisibility.setText(bean.getVisibility() + "km");//可见度
                         weatherPressure.setText(bean.getPressure() + "mb");//气压
-
+                        //ViewPager背景动态切换
                         switch (bean.getText()){
                             case "晴":weatherLayout.setBackground(getDrawable(R.drawable.icon_bg_sunny));break;
                             case "多云":weatherLayout.setBackground(getDrawable(R.drawable.icon_bg_cloudy));break;
-                            case "阴":weatherLayout.setBackground(getDrawable(R.drawable.icon_bg_cloudy));break;
-                            case "雨":weatherLayout.setBackground(getDrawable(R.drawable.icon_bg_big_rain));break;
+                            case "阴":weatherLayout.setBackground(getDrawable(R.drawable.icon_bg_dark));break;
+                            case "中雨":
+                            case "大雨":weatherLayout.setBackground(getDrawable(R.drawable.icon_bg_big_rain));break;
+                            case "雨":
+                            case "小雨":weatherLayout.setBackground(getDrawable(R.drawable.icon_bg_small_rain));break;
+                            case "霾":weatherLayout.setBackground(getDrawable(R.drawable.icon_bg_wumai));break;
+                            case "扬沙":weatherLayout.setBackground(getDrawable(R.drawable.icon_bg_fog));break;
                             case "雪":weatherLayout.setBackground(getDrawable(R.drawable.icon_bg_snow));break;
                             case "雷":weatherLayout.setBackground(getDrawable(R.drawable.icon_bg_thunder));break;
                         }
@@ -285,6 +298,7 @@ public class WeatherDetailActivity extends AppCompatActivity implements ViewPage
             }
         });
     }
+    //*******************viewPager页面添加，包括实况天气数据、预期24小时、预报7天:addview()结束***********************
 
     /**
      * 每添加或删除一个viewPager子项，然后更新指示器个数*/

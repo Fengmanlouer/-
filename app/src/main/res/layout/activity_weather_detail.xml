@@ -18,6 +18,14 @@
         android:background="@color/indicatorLayoutBg"
         android:orientation="horizontal"
         android:layout_marginBottom="10dp">
+        <ImageView
+            android:id="@+id/moreSet"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/icon_more_func"
+            android:scaleType="fitCenter"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center"/>
         <LinearLayout
             android:id="@+id/indicatorLayout"
             android:layout_width="0dp"
@@ -26,7 +34,8 @@
             android:orientation="horizontal"
             android:gravity="center"
             android:layout_gravity="center"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
         <ImageView
             android:id="@+id/moreLocation"
             android:layout_width="24dp"

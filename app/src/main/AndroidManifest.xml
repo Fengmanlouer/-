@@ -24,6 +24,10 @@
             android:exported="false"
             android:theme="@style/NotTitleBar"/>
         <activity
+            android:name="com.franz.easyweather.ui.MoreSetActivity"
+            android:exported="false"
+            android:theme="@style/NotTitleBar"/>
+        <activity
             android:name="com.franz.easyweather.ui.WeatherDetailActivity"
             android:exported="true"
             android:launchMode="singleTask"
