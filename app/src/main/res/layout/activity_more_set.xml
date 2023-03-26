@@ -8,7 +8,8 @@
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
     android:paddingTop="40dp"
-    android:background="#FFFFFFFF">
+
+    android:background="@drawable/icon_bg_sunny">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -34,8 +35,8 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="设置"
+            android:textColor="#FFFFFFFF"
             android:textSize="28sp"
-            android:textColor="#FF000000"
             android:textStyle="bold" />
     </RelativeLayout>
 
@@ -52,6 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="当前版本"
+            android:textColor="#FFFFFFFF"
             android:textSize="18sp"
             android:drawableLeft="@drawable/moreset_version"
             android:layout_marginLeft="10dp"
@@ -69,6 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="清除缓存"
+            android:textColor="#FFFFFFFF"
             android:textSize="18sp"
             android:drawableLeft="@drawable/moreset_delete"
             android:layout_marginLeft="10dp"
@@ -86,6 +89,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="分享软件"
+            android:textColor="#FFFFFFFF"
             android:textSize="18sp"
             android:drawableLeft="@drawable/moreset_share"
             android:layout_marginLeft="10dp"
@@ -103,6 +107,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="天气提醒"
+            android:textColor="#FFFFFFFF"
             android:textSize="18sp"
             android:drawableLeft="@drawable/moreset_notice"
             android:layout_marginLeft="10dp"
@@ -120,6 +125,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="关于天气"
+            android:textColor="#FFFFFFFF"
             android:textSize="18sp"
             android:drawableLeft="@drawable/moreset_aboutweather"
             android:layout_marginLeft="10dp"
@@ -137,6 +143,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="其他设置"
+            android:textColor="#FFFFFFFF"
             android:textSize="18sp"
             android:drawableLeft="@drawable/moreset_otherset"
             android:layout_marginLeft="10dp"

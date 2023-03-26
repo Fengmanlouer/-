@@ -4,7 +4,9 @@ import android.app.AlertDialog;
 import android.content.Intent;
 //import android.content.pm.PackageInfo;
 //import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,6 +32,7 @@ public class MoreSetActivity extends AppCompatActivity implements View.OnClickLi
         moreSet_otherSet = findViewById(R.id.more_set_otherset);
         moreSet_back.setOnClickListener(this);
         moreSet_share.setOnClickListener(this);
+        moreSet_aboutWeather.setOnClickListener(this);
 
         //String versionName = getVersionName();
         //versionTv.setText("当前版本:    v"+versionName);
@@ -42,12 +45,21 @@ public class MoreSetActivity extends AppCompatActivity implements View.OnClickLi
                 finish();
                 break;
             case R.id.more_set_delete:
-                clearCache();
-                break;
+                //clearCache();
+
             case R.id.more_set_share:
                 shareSoftwareMsg("蓝天气app是一款界面精美的天气预报软件，画面简约，播报天气情况非常精准，快来下载吧！");
                 break;
         }
+
+        moreSet_aboutWeather.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://blog.csdn.net/HELLEWORLD1"));
+                startActivity(intent);
+            }
+        });
 
     }
 
