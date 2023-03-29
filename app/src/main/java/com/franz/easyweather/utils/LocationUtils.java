@@ -88,8 +88,10 @@ public class LocationUtils {
                 Log.d(TAG, "省 is " + address.getAdminArea());
                 Log.d(TAG, "市 is " + address.getLocality());
                 Log.d(TAG, "区/县 is " + address.getSubLocality());
-                Log.d(TAG, "具体 is " + address.getFeatureName());
-                return  address.getLocality();
+                //Log.d(TAG, "具体 is " + address.getFeatureName());
+                //return  address.getLocality();
+                //提高精确度
+                return address.getSubLocality();
             }
         } catch (Exception e) {
             e.printStackTrace();
